@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployment Test Page</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border: 1px solid #334155;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    h1 { margin: 0 0 0.5rem 0; font-size: 1.75rem; }
+    p { color: var(--muted); line-height: 1.6; margin: 0 0 1.5rem 0; }
+    .status-box {
+      background: #090d16;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    button {
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">Deployment Status: Live</div>
+    <h1>GitHub Pages + Squarespace</h1>
+    <p>If you see this card at your custom Squarespace domain, your DNS records and GitHub configuration are working properly.</p>
+    
+    <div class="status-box">
+      <div>Domain: <span id="current-url" style="color: var(--accent);"></span></div>
+      <div>Loaded at: <span id="timestamp" style="color: #4ade80;"></span></div>
+    </div>
+
+    <button onclick="testAction()">Click to Test JavaScript</button>
+  </div>
+
+  <script>
+    document.getElementById('current-url').textContent = window.location.hostname || 'localhost';
+    document.getElementById('timestamp').textContent = new Date().toLocaleTimeString();
+
+    function testAction() {
+      alert('JavaScript is running correctly on your custom domain deployment!');
+    }
+  </script>
+</body>
+</html>
